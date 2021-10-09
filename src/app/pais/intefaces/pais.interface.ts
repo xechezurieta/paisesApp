@@ -2,7 +2,7 @@
 //
 //   import { Convert } from "./file";
 //
-//   const Country = Convert.toCountry(json);
+//   const country = Convert.toCountry(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
@@ -11,6 +11,7 @@ export interface Error {
   status: number;
   message: string;
 }
+
 export interface Country {
   name: Name;
   tld: string[];
@@ -100,7 +101,7 @@ export class Convert {
     return cast(JSON.parse(json), a(r('Country')));
   }
 
-  public static CountryToJson(value: Country[]): string {
+  public static countryToJson(value: Country[]): string {
     return JSON.stringify(uncast(value, a(r('Country'))), null, 2);
   }
 }
